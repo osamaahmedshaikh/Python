@@ -1,0 +1,15 @@
+# Name: Osama Shaikh
+import random
+
+def generateRandom(amount,n):
+    return [random.randint(0,n) for i in range(amount)]
+print(generateRandom(5,100))
+# This function will generate random numbers from 5 to 100
+def isEven(n):
+    return n % 2== 0
+print(isEven(10))
+# This function will tell if the function is Even or Odd, If it is even it will give true if odd then odd
+def removeOdd(n):
+    return[x for x in n if isEven(x)]
+print(removeOdd([1,2,3,4,5,6,7,8]))
+# This function will remove all the odd numbers from the list
