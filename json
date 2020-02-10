@@ -1,0 +1,21 @@
+import json
+
+try:
+    f = open("information.txt", "r")
+# This code will try to open the information.txt file
+except:
+    print("file is not found")
+# If the file name information.txt is not found than it will give you the error message of file is not found.
+dictionary = {
+    "a":1,
+    "b":2,
+    "c":3
+}
+# This is creating a dictionary of a:1,b:2,c:3
+with open("information.txt", "w") as f:
+    json.dump(dictionary,f)
+# This will dump the information.txt by using the json library dump
+with open("information.txt", "r") as f:
+    x = json.load(f)
+    print(x)
+# This will load the information.txt by using the json library load
