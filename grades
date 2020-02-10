@@ -1,0 +1,34 @@
+exercise4()
+def exercies5():
+     grades={}
+     while True:
+         student1= input("""
+         Add
+         remove
+         modify
+         print
+         exit
+         """)
+         if student1 == "Add":
+             name = input("What is the name?:")
+             gra = input("What is the grade?:")
+             grades [name] = gra
+         elif student1 == "remove":
+             name = input("What is the name your want to remove?:")
+             if name in grades:
+                 del grades[name]
+             else:
+                 print("invalid name")
+         elif student1 == "exit":
+             break
+         elif student1 == "modify":
+             name = input("What is the name your want to modify?:")
+             grad = input("What is your new grade?:")
+             if name in grades:
+                 grades[name] = grad
+             else:
+                 print("invalid name")
+         elif student1 == "print":
+             sorted(grades.keys())
+             for keys ,  value in grades.items():
+                 print(keys +": ",value)
