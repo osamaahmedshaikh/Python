@@ -1,0 +1,110 @@
+# Group 9:Attack On Python
+# Group leader:Osama Shaikh
+# Group members: Osama Shaikh (100574967),Umer Shahid (100701974)
+# Date: 11/29/2019
+# Description: This game will allow 2 people to compete with each other given one player ends up getting more score than the other player,That player will be declared as a winner. if both the player gets the same points than the game will be declared as a 'draw'
+# "I Osama Shaikh (100574967),Umer Shahid (100701974) Group 9:Attack On Python have not given, received, or used any unauthorized assistance."
+
+import random
+import sys
+str = """
+     ██╗██╗   ██╗███╗   ███╗██████╗ ██╗     ███████╗    ██╗    ██╗ ██████╗ ██████╗ ██████╗ ███████╗
+     ██║██║   ██║████╗ ████║██╔══██╗██║     ██╔════╝    ██║    ██║██╔═══██╗██╔══██╗██╔══██╗██╔════╝
+     ██║██║   ██║██╔████╔██║██████╔╝██║     █████╗      ██║ █╗ ██║██║   ██║██████╔╝██║  ██║███████╗
+██   ██║██║   ██║██║╚██╔╝██║██╔══██╗██║     ██╔══╝      ██║███╗██║██║   ██║██╔══██╗██║  ██║╚════██║
+╚█████╔╝╚██████╔╝██║ ╚═╝ ██║██████╔╝███████╗███████╗    ╚███╔███╔╝╚██████╔╝██║  ██║██████╔╝███████║
+ ╚════╝  ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝╚══════╝     ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝
+
+
+
+
+
+█████████╗   ████████╗███████╗    ███████████████╗█████╗██████╗████████╗    ████████╗██████╗     ██████╗██╗     █████╗██╗   ██╗
+╚══██╔══╚██╗ ██╔██╔══████╔════╝    ██╔════╚══██╔══██╔══████╔══██╚══██╔══╝    ╚══██╔══██╔═══██╗    ██╔══████║    ██╔══██╚██╗ ██╔╝
+   ██║   ╚████╔╝██████╔█████╗      ███████╗  ██║  █████████████╔╝  ██║          ██║  ██║   ██║    ██████╔██║    ███████║╚████╔╝
+   ██║    ╚██╔╝ ██╔═══╝██╔══╝      ╚════██║  ██║  ██╔══████╔══██╗  ██║          ██║  ██║   ██║    ██╔═══╝██║    ██╔══██║ ╚██╔╝
+   ██║     ██║  ██║    ███████╗    ███████║  ██║  ██║  ████║  ██║  ██║          ██║  ╚██████╔╝    ██║    █████████║  ██║  ██║
+   ╚═╝     ╚═╝  ╚═╝    ╚══════╝    ╚══════╝  ╚═╝  ╚═╝  ╚═╚═╝  ╚═╝  ╚═╝          ╚═╝   ╚═════╝     ╚═╝    ╚══════╚═╝  ╚═╝  ╚═╝
+
+
+
+                                                                                                                                                Created by : Osama Shaikh (100574967)
+                                                                                                                                                and Umer Shahid (100701974)
+                                                                                                                                                Date: 11/29/2019
+"""
+print(str)
+players = {}
+name_1 =""
+name_2 =""
+def choose_rand(words):
+    return random.choice(words)
+# This function will pick random words from the given list of words.
+def shuffle_letters(word):
+    l = random.sample(word, len(word))
+    return ''.join(l)
+# This function will shuffle letters from the random selected word.
+def is_Even(number):
+    return (number % 2 == 0)
+# This function will return if the word is even
+def is_odd(number):
+    return not (number % 2 == 0)
+# This function will not return if its not a even number
+def final_score():
+    print(name_1, "Score is:", players[name_1])
+    print(name_2, "Score is:", players[name_2])
+# This function will print your final score of player 1 and player 2
+def declare_winner():
+    if players[name_1] > players[name_2]:
+        print("You are the winner", name_1)
+    elif players[name_2] > players[name_1]:
+        print("You are the winner ", name_2)
+    elif players[name_1] == players[name_2]:
+        print("Game draw, No one 'Wins'!")
+# This function will check if the player 1 have greater score than player 2 or if it is a opposite if they do than they will be declared as a winner, if they both have same score then it will be a draw.
+def game_over():
+    final_score()
+    declare_winner()
+    sys.exit("\nGame Over! Thanks for playing")
+# This function will call final score and declare winner and than will end the game.
+def special_input(message):
+    result = input(message)
+    if result == "stop" or result =="exit":
+        game_over()
+    return result
+# This is a special function which will allow user to stop or exit at any point of the program.
+def play_game():
+    global players , name_1 , name_2
+    rand_words = ['hello','potato','bagel','unicorn','muffin','seven','printer','umbrella','representative','impress','malicious','awesome','satisfying','famous','possible']
+    user_s = input("")
+    information = "Instructions: This game is based on two players,each player will get new word after each time they guess. If both the players end up getting same score then the game will 'draw'"
+    print(information)
+    if user_s == "START" or "start":
+        name_1 = special_input('Player "1" Enter your name?:')
+        name_2 = special_input('Player "2" Enter your name?:')
+        players[name_1] = 0
+        players[name_2] = 0
+        while True:
+            for name, score in players.items():
+                One_Word = choose_rand(rand_words)
+                l = shuffle_letters(One_Word)
+                print("Random Selected word is  - ", l)
+                guess_1 = special_input("What is your Guess, {}?:".format(name))
+                if guess_1 != One_Word:
+                    print('Sorry, that\'s not it')
+                    print("Your score is:",players[name])
+                if guess_1 == One_Word:
+                    players[name] = players[name] + 1
+                    print('Thats its you guess it right ')
+                    print("Your score is:",players[name])
+            rest = special_input("do you want to continue type 'Y' or 'N':")
+            if rest == "Y":
+                continue
+            if rest == "N":
+                game_over()
+play_game()
+# This function will ask the player 1 and player 2 name and than will ask what is your guess if the guess is wrong than it will say sorry thats not it if the guess is right than it say you have guess it and will show scores
+
+
+
+
+
