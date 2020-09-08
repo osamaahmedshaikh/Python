@@ -1,0 +1,35 @@
+import random
+list = ["Cyndi","Mariam","Dennise","Lorena","Tessie","Carita","Isis","Vannesa","Remona","Lynn","Lavonia","Frederica","Elizabet","Quinton","Gayla","Jaimee","Lupita","Justine","Rayna","Carlie"]
+experience = ("Cyndi = 10 years","Mariam = 11 years","Dennise = 15 years","Lorena = 20 years","Tessie = 16 years","Carita = 14 years","Isis = 12 years","Vannesa = 17 years","Remona = 18 years ","Lynn = 19 years ","Lavonia = 13 years","Frederica = 12 years","Elizabet = 16 years","Quinton = 19 years","Gayla = 12 years","Jaimee = 15 years ","Lupita = 14 years","Justine = 17 years ","Rayna = 19 years","Carlie = 15 years")
+def meet():
+    hello= input("What is your name?:")
+    print("It is nice to meet you,",hello)
+meet()
+
+def doctor():
+    print("Welcome to Covid19 hospital")
+    doctors= input("Which doctor would you like to meet?,Type doctors to get doctors list:")
+    if doctors == "doctors":
+        print("Let me search the covid19 doctors...")
+        print("Here is the list of doctors")
+        print(list)
+doctor()
+
+def pick():
+    picks = input("which doctors suits you the most?,Type qualification to show the qualifications of the doctors:")
+    if picks == "qualification":
+        print("Let me show you how much experience they have with covid19 patients..")
+        print("searching...")
+        print(experience)
+        print("In my opinion they are all every skilled doctors if you want i can randomly pick 1 for you.")
+        yesorno = input(" Can i randomly pick 1 for you?:")
+        if      yesorno == "Yes" or "yes":
+            print("This is the random name that i have pick for you: ", random.choice(list))
+            print("Now the doctor will give you the call for conforming the appointment and picking the time that suits best to you")
+        elif    yesorno == "No" or "no":
+            picking = input("which one would you like to pick?:")
+            print("thankyou for picking that doctor.")
+            print("Now the doctor will give you the call for conforming the appointment and picking the time that suits best to you")
+        print("Thankyou for calling our Covid-19 hospital and hoping to see you soon!.")
+pick()
+        
