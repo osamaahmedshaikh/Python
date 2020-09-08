@@ -1,0 +1,76 @@
+#Exercise 1
+#Name: Osama Shaikh
+#Student Number: 100574967
+class information:
+    def __init__(self,name ,age ,phonenumber,address="unknown"):
+        self.__name = name
+        self.__age = age
+        self.__phonenumber = phonenumber
+        self.__address = address
+    def getname(self):
+        return self.__name
+
+    def getage(self):
+        return self.__age
+
+    def getphonenumber(self):
+        return self.__phonenumber
+
+    def getaddress(self):
+        return self.__address
+
+    def setname(self,name):
+        self.__name = name
+
+    def setage(self,age):
+        self.__age = age
+
+    def setphonenumber(self,phonenumber):
+        self.__phonenumber = phonenumber
+
+    def setaddress(self,address):
+        self.__address = address
+
+    def __str__(self):
+        return "name: "+self.__name +  " age: "+str(self.__age)+ " address:"+self.__address
+    def display(self,information):
+        return "name: " + information.getname() + " age: " + str(information.getage()) + " address:" + information.getaddress() + " phonenumber:" + str(information.getphonenumber())
+
+
+p1 = information('Sarah',21,6477197345,'2000 Simcoe North')
+print(p1)
+p2 = information('Osama',24,6477197345,'2000 Simcoe North')
+print(p2)
+print(p1.display(p2))
+#Exercise 2
+class Retaliation:
+    def __init__(self,itemdescription,unitsininventory,price):
+        self.itemdescription = itemdescription
+        self.unitininventory = unitsininventory
+        self.price = price
+item1 = Retaliation('jacket',12,59.95)
+item2 = Retaliation('Designer Jeans',40,34.95)
+item3 = Retaliation('Shirt',20,24.95)
+
+#Exercise 3
+class CashRegister:
+    def __init__(self):
+        self.items = []
+    def purchase_items(self,retailitem):
+        self.items.append(retailitem)
+    def get_total(self):
+        total = 0
+        for i in range(0,len(self.items)):
+            total += self.items[i].price
+        return total
+    def showitems(self):
+        for i in range(0,len(self.items)):
+            print("description: "+self.items[i].itemdescription + "       Inventory:" + str(self.items[i].unitininventory) + "        Price:" + str(self.items[i].price))
+    def clear(self):
+        self.item = []
+Cash = CashRegister()
+Cash.purchase_items(item1)
+Cash.purchase_items(item2)
+Cash.purchase_items(item3)
+print(Cash.get_total())
+print(Cash.showitems())
